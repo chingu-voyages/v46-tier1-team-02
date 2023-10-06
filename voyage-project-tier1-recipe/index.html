@@ -3,10 +3,32 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipes project</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <title>Recipes</title>
   </head>
   <body>
-    <button>Search</button>
-    <button>Clear</button>
+    <main>
+      <header>
+        <h1>Recipes</h1>
+        <p>Find amazing and delicious recipes at the click of a button...</p>
+      </header>
+      <form action="">
+        <label for="search">Search:</label>
+        <input
+          type="text"
+          id="search"
+          name="search"
+          placeholder="Enter an ingredient"
+        />
+        <button type="submit">Search</button>
+        <button type="reset">Clear</button>
+      </form>
+    </main>
+    <footer>
+      <p>&copy; 2023 Recipes</p>
+      <a href="https://github.com/chingu-voyages/v46-tier1-team-02">
+        <img src="./images/github-mark.png" alt="" />
+      </a>
+    </footer>
   </body>
 </html>

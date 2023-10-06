@@ -1,0 +1,18 @@
+body {
+  display: flex;
+  min-height: 100vh;
+  place-content: center;
+}
+
+footer {
+  display: flex;
+  flex-direction: row;
+  position: absolute;
+  bottom: 0;
+}
+
+img {
+  width: 40px;
+  height: 40px;
+  margin: 0 10px;
+}
