@@ -2,6 +2,16 @@ body {
   display: flex;
   min-height: 100vh;
   place-content: center;
+  justify-content: center;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+.header__text-instructions {
+  font-style: italic;
 }
 
 footer {
