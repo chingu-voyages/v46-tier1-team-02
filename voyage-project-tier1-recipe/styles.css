@@ -113,6 +113,15 @@ a[title]:hover::after {
   align-items: center;
   justify-content: center;
   flex-wrap: wrap;
+  font-family: 'Red Hat Display', sans-serif;
+}
+
+.container {
+  text-align: center;
+}
+
+.header__text-instructions {
+  font-style: italic;
 }
 
 .flex-container {
