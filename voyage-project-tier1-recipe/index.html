@@ -12,8 +12,9 @@
     />
     <title>Recipes</title>
   </head>
-  <body>
-    <main class="container">
+
+  <body class="flex-container flex-container--gap">
+    <section id="app">
       <header>
         <h1>Find Recipes From Ingredients</h1>
         <p class="header__text-instructions">
@@ -21,23 +22,37 @@
           the search button to see a number of recommended recipes.
         </p>
       </header>
-      <form action="">
-        <label for="search">Search:</label>
-        <input
-          type="text"
-          id="search"
-          name="search"
-          placeholder="Enter an ingredient"
-        />
-        <button type="submit">Search</button>
-        <button type="reset">Clear</button>
-      </form>
-    </main>
-    <footer>
-      <p>&copy; 2023 Recipes</p>
-      <a href="https://github.com/chingu-voyages/v46-tier1-team-02">
-        <img src="./images/github-mark.png" alt="" />
-      </a>
-    </footer>
+  
+      <main class="flex-container flex-container--gap"> 
+        <form action="" class="form--flex-container">
+          <section>
+            <label for="search">Search:</label>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Enter an ingredient"
+            />
+          </section>
+          
+          <section>
+            <button type="submit">Search</button>
+            <button type="reset">Clear</button>
+          </section>
+        </form>
+  
+        <section id="recipe-card-container" class="recipe-card__grid-container"></section>
+      </main>
+  
+      <footer class="flex-container">
+        <p>&copy; 2023 Recipes App</p>
+        <a target="_blank" href="https://github.com/chingu-voyages/v46-tier1-team-02" title="External github repo will open on a new tab" class="footer--flex-container">
+          <img src="./images/github-mark.png" alt="GitHub Logo" />
+          v46-tier1-team-02 github repo
+        </a>
+      </footer>
+    </section>
+
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
