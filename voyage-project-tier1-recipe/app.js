@@ -82,14 +82,14 @@ displaySearchResults(recipeDataResults);
 
 // Get recipe - Modal
 let recipeModal = document.createElement("section");
-const recipeIngredientArray = recipeDataResults.map(recipe => recipe.sections[0].components.map(component => component));
+// const recipeIngredientArray = recipeDataResults.map(recipe => recipe.sections[0].components.map(component => component));
 
-Object.values(recipeIngredientArray).forEach(val => {
-    val.forEach(ingredient => {
-        // log ingredients
-        console.log("ingredient: ", ingredient);
-    })
-});
+// Object.values(recipeIngredientArray).forEach(val => {
+//     val.forEach(ingredient => {
+//         // log ingredients
+//         console.log("ingredient: ", ingredient);
+//     })
+// });
 
 function createRecipeModal(recipeData) {
     recipeModal.classList.add("recipe-modal");
@@ -160,15 +160,27 @@ function createRecipeModal(recipeData) {
 
     recipeTitleHeader.innerHTML = recipeData.name;
 
+    
     recipeNutritionHeader.innerHTML = "Nutrition:";
     for (const [key, value] of Object.entries(recipeData.nutrition)) {
         console.log(`${key} ${value}`);
         recipeNutritionUl.innerHTML += '<li>' + `${key}: ${value}` + '</li>';
     }
-
+    
     recipeIngredientsHeader.innerHTML = "Ingredients:";
-    // TODO: display ingredients
 
+    for (const section of recipeData.sections) {
+        for (const component of section.components) {
+            const measurement = component.measurements[0];
+            const quantity = measurement.quantity === "0" ? "-" : measurement.quantity;
+            const unit = quantity > 1 ? measurement.unit.display_plural : measurement.unit.display_singular;
+            const ingredientItem = document.createElement("li");
+            const ingredientText = `${quantity} ${unit} ${component.ingredient.name}`;
+            ingredientItem.innerText = ingredientText;
+            ingredientItem.style.listStyle = "disc"; // Add a small black dot
+            recipeIngredientsUl.appendChild(ingredientItem);
+        }
+    }
     recipeInstructionsHeader.innerHTML = "Instructions:";
     recipeInstructions.innerHTML = recipeData.description;
 
@@ -185,8 +197,16 @@ function createRecipeModal(recipeData) {
 
     return recipeModal;
 }
-
 function displayRecipeModalContent(results) {
+    // Remove any existing modal content
+    const existingModal = document.querySelector(".recipe-modal");
+    if (existingModal) {
+        existingModal.remove();
+    }
+
+    // Create a new recipeModal element
+    recipeModal = document.createElement("section");
+
     const recipeModalSection = createRecipeModal(results);
     document.body.appendChild(recipeModalSection);
 }
