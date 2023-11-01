@@ -237,3 +237,18 @@ document.addEventListener("keyup", e => {
         document.querySelector(".recipe-modal.is-visible").classList.remove(isVisible);
     }
 });
+
+// Event listener for the "Clear" button
+document.querySelector("form").addEventListener("reset", () => {
+    document.getElementById("search").value = "";
+    displaySearchResults(recipeDataResults);
+});
+
+// Event listener for the "input" event
+document.getElementById("search").addEventListener("input", () => {
+    const searchTerm = document.getElementById("search").value.trim().toLowerCase();
+    if (searchTerm === "") {
+        displaySearchResults(recipeDataResults); 
+    }
+});
+
