@@ -1,10 +1,10 @@
 let recipeData;
 
 try {
-    recipeData = await fetch("./utils/recipes.json").then(response => response.json()).then(data => data);
+    const response = await fetch("./utils/recipes.json");
+    recipeData = await response.json();
     console.log("recipeData: ", recipeData);
-}
-catch (error) {
+} catch (error) {
     console.error(error);
 }
 
@@ -14,26 +14,15 @@ const isVisible = "is-visible";
 
 // Function to create a recipe card
 function createRecipeCard(recipe) {
-    let recipeCardDiv = document.createElement("div");
-    let recipeCardImage = document.createElement("img");
-    let recipeCardHeader = document.createElement("h2");
-    let recipeCardButton = document.createElement("button");
+    const recipeCardDiv = document.createElement("div");
     recipeCardDiv.classList.add("recipe-card__grid-container__items");
 
-    recipeCardImage.src = recipe.thumbnail_url;
-    recipeCardHeader.innerHTML = recipe.name;
-    recipeCardButton.classList.add("recipe-card__button");
-    recipeCardButton.innerHTML = "Get recipe";
-
-    recipeCardDiv.appendChild(recipeCardImage);
-    recipeCardDiv.appendChild(recipeCardHeader);
-    recipeCardDiv.appendChild(recipeCardButton);
-
-    recipeCardButton.addEventListener("click", function () {
-        onClickHandlerGetRecipeButton(recipe);
-    }, false);
-
-    return recipeCardDiv;  // Return the completed recipe card
+    recipeCardDiv.innerHTML = `
+        <img src="${recipe.thumbnail_url}">
+        <h2>${recipe.name}</h2>
+        <button class="recipe-card__button">Get recipe</button>
+    `;
+  return recipeCardDiv; 
 }
 
 // Function to display search results
@@ -82,75 +71,83 @@ displaySearchResults(recipeDataResults);
 
 // Get recipe - Modal
 let recipeModal = document.createElement("section");
-// const recipeIngredientArray = recipeDataResults.map(recipe => recipe.sections[0].components.map(component => component));
 
-// Object.values(recipeIngredientArray).forEach(val => {
-//     val.forEach(ingredient => {
-//         // log ingredients
-//         console.log("ingredient: ", ingredient);
-//     })
-// });
+//Creates a new HTML element with optional class names and attributes.
+function createElement(tagName, classNames = [], attributes = {}) {
+    const element = document.createElement(tagName);
+    element.classList.add(...classNames);
+    for (const [attribute, value] of Object.entries(attributes)) {
+        element.setAttribute(attribute, value);
+    }
+    return element;
+}
 
 function createRecipeModal(recipeData) {
     recipeModal.classList.add("recipe-modal");
 
-    let recipeModalContainer = document.createElement("section");
-    recipeModalContainer.classList.add("recipe-modal__container");
+    let recipeModalContainer = createElement("section", ["recipe-modal__container"]);
+    let recipeModalCloseButton = createElement("button", ["recipe-modal__close-button"]);
+    let recipeModalContent = createElement("section", ["recipe-modal__content"]);
+    
+    let recipeDetailsSectionContainer = createElement("section");
+    let recipeTitleHeader = createElement("h2");
+    let recipeName = createElement("p");
 
-    let recipeModalCloseButton = document.createElement("button");
-    recipeModalCloseButton.classList.add("recipe-modal__close-button");
+    let recipeNutritionSectionContainer = createElement("section");
+    let recipeNutritionHeader = createElement("h3");
+    let recipeNutrition = createElement("p");
+    let recipeNutritionUl = createElement("ul");
 
-    let recipeModalContent = document.createElement("section");
-    recipeModalContent.classList.add("recipe-modal__content");
+    let recipeIngredientsSectionContainer = createElement("section");
+    let recipeIngredientsHeader = createElement("h3");
+    let recipeIngredientsUl = createElement("ul");
 
-    let recipeDetailsSectionContainer = document.createElement("section");
-    let recipeTitleHeader = document.createElement("h2");
-    let recipeName = document.createElement("p");
+    let recipeInstructionsSectionContainer = createElement("section");
+    let recipeInstructionsHeader = createElement("h3");
+    let recipeInstructions = createElement("p");
 
-    let recipeNutritionSectionContainer = document.createElement("section");
-    let recipeNutritionHeader = document.createElement("h3");
-    let recipeNutrition = document.createElement("p");
-    let recipeNutritionUl = document.createElement("ul");
+    let recipeImageSectionContainer = createElement("section");
+    let recipeImage = createElement("img");
 
-    let recipeIngredientsSectionContainer = document.createElement("section");
-    let recipeIngredientsHeader = document.createElement("h3");
-    let recipeIngredientsUl = document.createElement("ul");
-
-    let recipeInstructionsSectionContainer = document.createElement("section");
-    let recipeInstructionsHeader = document.createElement("h3");
-    let recipeInstructions = document.createElement("p");
-
-    let recipeImageSectionContainer = document.createElement("section");
-    let recipeImage = document.createElement("img");
-
-    let recipeVideoLinkSectionContainer = document.createElement("section");
-    recipeVideoLinkSectionContainer.classList.add("recipe-modal__video-container");
-    let recipeVideoLink = document.createElement("a");
+    let recipeVideoLinkSectionContainer = createElement("section", ["recipe-modal__video-container"]);
+    let recipeVideoLink = createElement("a", [], {
+        target: "_blank",
+        rel: "noopener noreferrer",
+        href: recipeData.original_video_url,
+        "data-title": `'${recipeData.name}' external video link will open on a new tab`
+    });
 
     recipeModal.appendChild(recipeModalContainer);
-
-    recipeModalContainer.appendChild(recipeModalCloseButton);
-    recipeModalContainer.appendChild(recipeModalContent);
-
+    
+    recipeModalContainer.append(recipeModalCloseButton,recipeModalContent);
+    
     recipeModalContent.appendChild(recipeDetailsSectionContainer);
 
-    recipeDetailsSectionContainer.appendChild(recipeTitleHeader);
-    recipeDetailsSectionContainer.appendChild(recipeName);
-    recipeDetailsSectionContainer.appendChild(recipeNutritionSectionContainer);
-    recipeDetailsSectionContainer.appendChild(recipeIngredientsSectionContainer);
-    recipeDetailsSectionContainer.appendChild(recipeInstructionsSectionContainer);
-    recipeDetailsSectionContainer.appendChild(recipeImageSectionContainer);
-    recipeDetailsSectionContainer.appendChild(recipeVideoLinkSectionContainer);
-
-    recipeNutritionSectionContainer.appendChild(recipeNutritionHeader);
-    recipeNutritionSectionContainer.appendChild(recipeNutrition);
+    recipeDetailsSectionContainer.append(
+        recipeTitleHeader,
+        recipeName,
+        recipeNutritionSectionContainer,
+        recipeIngredientsSectionContainer,
+        recipeInstructionsSectionContainer,
+        recipeImageSectionContainer,
+        recipeVideoLinkSectionContainer
+    );
+    recipeNutritionSectionContainer.append(
+        recipeNutritionHeader,
+        recipeNutrition
+    );
     recipeNutrition.appendChild(recipeNutritionUl);
 
-    recipeIngredientsSectionContainer.appendChild(recipeIngredientsHeader);
-    recipeIngredientsSectionContainer.appendChild(recipeIngredientsUl);
+    recipeIngredientsSectionContainer.append(
+        recipeIngredientsHeader,
+        recipeIngredientsUl
+    );
+    
 
-    recipeInstructionsSectionContainer.appendChild(recipeInstructionsHeader);
-    recipeInstructionsSectionContainer.appendChild(recipeInstructions);
+    recipeInstructionsSectionContainer.append(
+        recipeInstructionsHeader,
+        recipeInstructions
+    );
 
     recipeImageSectionContainer.appendChild(recipeImage);
 
@@ -190,9 +187,8 @@ function createRecipeModal(recipeData) {
     recipeVideoLink.innerHTML = "Watch video";
     recipeVideoLink.setAttribute("target", "_blank");
     recipeVideoLink.setAttribute("rel", "noopener noreferrer");
-    recipeVideoLink.setAttribute("href", recipeData.original_video_url);
+    recipeVideoLink.href = recipeData.original_video_url;
     recipeVideoLink.setAttribute("data-title", `'${recipeData.name}' external video link will open on a new tab`);
-
     recipeModalCloseButton.addEventListener("click", onClickCloseRecipeModal);
 
     return recipeModal;
@@ -210,6 +206,16 @@ function displayRecipeModalContent(results) {
     const recipeModalSection = createRecipeModal(results);
     document.body.appendChild(recipeModalSection);
 }
+// Event delegation for recipe cards
+document.getElementById("search-results-list").addEventListener("click", (event) => {
+    const recipeCardButton = event.target.closest(".recipe-card__button");
+    if (recipeCardButton) {
+        const recipeCardDiv = recipeCardButton.closest(".recipe-card__grid-container__items");
+        const index = Array.from(recipeCardDiv.parentNode.children).indexOf(recipeCardDiv);
+        const recipe = recipeDataResults[index];
+        onClickHandlerGetRecipeButton(recipe);
+    }
+});
 
 function onClickHandlerGetRecipeButton(recipe) {
     displayRecipeModalContent(recipe);
@@ -231,3 +237,18 @@ document.addEventListener("keyup", e => {
         document.querySelector(".recipe-modal.is-visible").classList.remove(isVisible);
     }
 });
+
+// Event listener for the "Clear" button
+document.querySelector("form").addEventListener("reset", () => {
+    document.getElementById("search").value = "";
+    displaySearchResults(recipeDataResults);
+});
+
+// Event listener for the "input" event
+document.getElementById("search").addEventListener("input", () => {
+    const searchTerm = document.getElementById("search").value.trim().toLowerCase();
+    if (searchTerm === "") {
+        displaySearchResults(recipeDataResults); 
+    }
+});
+
