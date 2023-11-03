@@ -34,7 +34,7 @@
               placeholder="Enter an ingredient"
             />
           </section>
-          
+
           <section>
             <button type="submit">Search</button>
             <button type="reset">Clear</button>
@@ -42,23 +42,41 @@
         </form>
 
         <section id="search-results">
-          <h2 id="search-results-heading"style="display: none;" >Search Results</h2>
-          <div id="search-results-list" class="recipe-card__grid-container"></div>
-          <p id="error-message" class="error-message" style="display: none;">No results found.</p>
+          <h2 id="search-results-heading" style="display: none">
+            Search Results
+          </h2>
+          <div
+            id="search-results-list"
+            class="recipe-card__grid-container"
+          ></div>
+          <p id="error-message" class="error-message" style="display: none">
+            No results found.
+          </p>
         </section>
-  
-        <section id="recipe-card-container" class="recipe-card__grid-container"></section>
+
+        <section
+          id="recipe-card-container"
+          class="recipe-card__grid-container"
+        ></section>
       </main>
-  
+
       <footer class="flex-container">
         <p>&copy; 2023 Recipes App</p>
-        <a target="_blank" rel="noopener noreferrer" href="https://github.com/chingu-voyages/v46-tier1-team-02" data-title="External github repo will open on a new tab" class="footer--flex-container">
+        <a
+          target="_blank"
+          rel="noopener noreferrer"
+          href="https://github.com/chingu-voyages/v46-tier1-team-02"
+          data-title="External github repo will open on a new tab"
+          class="footer--flex-container"
+        >
           <img src="./images/github-mark.png" alt="GitHub Logo" />
           v46-tier1-team-02 github repo
         </a>
       </footer>
     </section>
-
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to Top">
+      <img src="icons/scroll.png" class="icon-image" alt="Scroll to Top" />
+    </button>
     <script type="module" src="./app.js"></script>
   </body>
 </html>

@@ -15,7 +15,7 @@
   --cursor-pointer: pointer;
   --recipe-card-modal-bg-color: var(--header-footer-bg-color);
   --recipe-card-modal-border-color: var(--button-bg-color);
-  --font-family: 'Red Hat Display', sans-serif;
+  --font-family: "Red Hat Display", sans-serif;
   --primary-font-size: 1.1rem;
   --h1-font-size: 1.8rem;
   --h2-font-size: 1.3rem;
@@ -95,29 +95,29 @@ button:focus {
   grid-template-columns: 1fr;
   grid-template-rows: auto 1fr auto;
   grid-template-areas:
-    'header'
-    'main'
-    'footer';
+    "header"
+    "main"
+    "footer";
 }
 
-#app>header {
+#app > header {
   background-color: var(--header-footer-bg-color);
   grid-area: header;
   padding: 0 1rem;
 }
 
-#app>main {
+#app > main {
   grid-area: main;
   margin-top: 2rem;
 }
 
-#app>footer {
+#app > footer {
   background-color: var(--header-footer-bg-color);
   grid-area: footer;
   padding-bottom: 1rem;
 }
 
-#app>footer img {
+#app > footer img {
   margin-right: 1rem;
   height: 2rem;
   width: 2rem;
@@ -270,19 +270,32 @@ button:focus {
   align-items: center;
   justify-content: center;
 }
+/* Scroll to top */
+.scroll-to-top {
+  background-color: transparent;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  margin-right: 5rem;
+}
+
+.icon-image {
+  height: 48px;
+  width: 48px;
+}
 
 /* media query for desktop */
 @media only screen and (min-device-width: 768px) and (max-device-width: 6024px) {
-  #app>main {
+  #app > main {
     padding: 2rem 0;
   }
 
-  #app>main form {
+  #app > main form {
     padding-right: 3rem;
   }
 
-  #app>main form,
-  #app>main .recipe-card__grid-container {
+  #app > main form,
+  #app > main .recipe-card__grid-container {
     margin: auto;
     max-width: 1440px;
   }
@@ -357,3 +370,4 @@ button:focus {
     text-align: center;
   }
 }
+
