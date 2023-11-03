@@ -270,7 +270,6 @@ button:focus {
   align-items: center;
   justify-content: center;
 }
-
 /* Scroll to top */
 .scroll-to-top {
   background-color: transparent;
@@ -279,15 +278,10 @@ button:focus {
   right: 2rem;
   margin-right: 5rem;
 }
-.scroll-to-top:hover {
-  background-color: transparent;
-  border: none;
-}
+
 .icon-image {
   height: 48px;
   width: 48px;
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
 }
 
 /* media query for desktop */
@@ -376,3 +370,4 @@ button:focus {
     text-align: center;
   }
 }
+
