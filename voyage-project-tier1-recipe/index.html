@@ -3,10 +3,65 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Recipes project</title>
+    <link rel="stylesheet" href="./styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@500;700;900&display=swap"
+      rel="stylesheet"
+    />
+    <title>ReciPick App</title>
   </head>
-  <body>
-    <button>Search</button>
-    <button>Clear</button>
+
+  <body class="flex-container flex-container--gap">
+    <section id="app">
+      <header>
+        <h1>Find Recipes From Ingredients</h1>
+        <p class="header__text-instructions">
+          Simply enter an ingredient of your choice into the text box and click
+          the search button to see a number of recommended recipes.
+        </p>
+      </header>
+
+      <main>
+        <form action="" class="form--flex-container">
+          <section>
+            <label for="search">Search recipe by entering an ingredient:</label>
+            <input
+              type="text"
+              id="search"
+              name="search"
+              placeholder="Enter an ingredient"
+            />
+          </section>
+          
+          <section>
+            <button type="submit">Search</button>
+            <button type="reset">Clear</button>
+          </section>
+        </form>
+
+        <section id="search-results">
+          <h2 id="search-results-heading"style="display: none;" >Search Results</h2>
+          <div id="search-results-list" class="recipe-card__grid-container"></div>
+          <p id="error-message" class="error-message" style="display: none;">No results found.</p>
+        </section>
+  
+        <section id="recipe-card-container" class="recipe-card__grid-container"></section>
+      </main>
+  
+      <footer class="flex-container">
+        <p>&copy; 2023 Recipes App</p>
+        <a target="_blank" rel="noopener noreferrer" href="https://github.com/chingu-voyages/v46-tier1-team-02" data-title="External github repo will open on a new tab" class="footer--flex-container">
+          <img src="./images/github-mark.png" alt="GitHub Logo" />
+          v46-tier1-team-02 github repo
+        </a>
+      </footer>
+    </section>
+
+    <button class="scroll-to-top" id="scrollToTop" aria-label="Scroll to Top">
+      <img src="icons/scroll.png" class="icon-image" alt="Scroll to Top">
+    </button>
+    <script type="module" src="./app.js"></script>
   </body>
 </html>
