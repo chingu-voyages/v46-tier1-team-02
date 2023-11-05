@@ -242,12 +242,25 @@ document
     }
   });
 
+  function disableScroll() {
+    document.body.style.overflow = 'hidden';
+  }
+  
+  function enableScroll() {
+    document.body.style.overflow = 'auto';
+  }
+
+
+
+
 function onClickHandlerGetRecipeButton(recipe) {
+  disableScroll();// Disable scrolling when the modal is opened
   displayRecipeModalContent(recipe);
   recipeModal.classList.add(isVisible);
 }
 
 function onClickCloseRecipeModal() {
+  enableScroll(); // Enable scrolling when the modal is closed
   recipeModal.classList.remove(isVisible);
 }
 
