@@ -38,8 +38,8 @@ function displaySearchResults(results) {
   searchResultsList.innerHTML = "";
 
   if (results.length === 0) {
-    errorMessage.style.display = "block"; // Display the error message if there are no results
-    searchResultsHeading.style.display = "block"; // Make the hidden heading visible
+    errorMessage.style.display = "block";
+    searchResultsHeading.style.display = "block";
   } else {
     results.forEach((recipe) => {
       const recipeCardDiv = createRecipeCard(recipe);
@@ -50,7 +50,7 @@ function displaySearchResults(results) {
 
 // Event listener for form submission
 document.querySelector("form").addEventListener("submit", function (event) {
-  event.preventDefault(); // Prevent form submission
+  event.preventDefault();
   const searchTerm = document
     .getElementById("search")
     .value.trim()
@@ -59,10 +59,9 @@ document.querySelector("form").addEventListener("submit", function (event) {
     "search-results-heading"
   );
   if (searchTerm === "") {
-    displaySearchResults(recipeDataResults); // Display all recipes when the search term is empty
+    displaySearchResults(recipeDataResults);
   } else {
     const results = recipeDataResults.filter((recipe) => {
-      // Check if the ingredient list of the recipe contains the search term
       return recipe.sections.some((section) =>
         section.components.some((component) =>
           component.ingredient.name.toLowerCase().includes(searchTerm)
@@ -70,8 +69,8 @@ document.querySelector("form").addEventListener("submit", function (event) {
       );
     });
 
-    displaySearchResults(results); // Display the filtered results
-    searchResultsHeading.style.display = "block"; // Make the hidden heading visible
+    displaySearchResults(results);
+    searchResultsHeading.style.display = "block";
   }
 });
 
@@ -80,7 +79,7 @@ displaySearchResults(recipeDataResults);
 // Get recipe - Modal
 let recipeModal = document.createElement("section");
 
-//Creates a new HTML element with optional class names and attributes.
+// Creates a new HTML element with optional class names and attributes.
 function createElement(tagName, classNames = [], attributes = {}) {
   const element = document.createElement(tagName);
   element.classList.add(...classNames);
@@ -146,10 +145,12 @@ function createRecipeModal(recipeData) {
     recipeImageSectionContainer,
     recipeVideoLinkSectionContainer
   );
+
   recipeNutritionSectionContainer.append(
     recipeNutritionHeader,
     recipeNutrition
   );
+
   recipeNutrition.appendChild(recipeNutritionUl);
 
   recipeIngredientsSectionContainer.append(
@@ -190,10 +191,11 @@ function createRecipeModal(recipeData) {
       const ingredientItem = document.createElement("li");
       const ingredientText = `${quantity} ${unit} ${component.ingredient.name}`;
       ingredientItem.innerText = ingredientText;
-      ingredientItem.style.listStyle = "disc"; // Add a small black dot
+      ingredientItem.style.listStyle = "disc";
       recipeIngredientsUl.appendChild(ingredientItem);
     }
   }
+
   recipeInstructionsHeader.innerHTML = "Instructions:";
   recipeInstructions.innerHTML = recipeData.description;
 
@@ -212,6 +214,7 @@ function createRecipeModal(recipeData) {
 
   return recipeModal;
 }
+
 function displayRecipeModalContent(results) {
   // Remove any existing modal content
   const existingModal = document.querySelector(".recipe-modal");
@@ -225,6 +228,7 @@ function displayRecipeModalContent(results) {
   const recipeModalSection = createRecipeModal(results);
   document.body.appendChild(recipeModalSection);
 }
+
 // Event delegation for recipe cards
 document
   .getElementById("search-results-list")
@@ -242,25 +246,22 @@ document
     }
   });
 
-  function disableScroll() {
-    document.body.style.overflow = 'hidden';
-  }
-  
-  function enableScroll() {
-    document.body.style.overflow = 'auto';
-  }
+function disableScroll() {
+  document.body.style.overflow = 'hidden';
+}
 
-
-
+function enableScroll() {
+  document.body.style.overflow = 'auto';
+}
 
 function onClickHandlerGetRecipeButton(recipe) {
-  disableScroll();// Disable scrolling when the modal is opened
+  disableScroll();
   displayRecipeModalContent(recipe);
   recipeModal.classList.add(isVisible);
 }
 
 function onClickCloseRecipeModal() {
-  enableScroll(); // Enable scrolling when the modal is closed
+  enableScroll();
   recipeModal.classList.remove(isVisible);
 }
 
@@ -269,6 +270,7 @@ document.addEventListener("click", (e) => {
     document
       .querySelector(".recipe-modal.is-visible")
       .classList.remove(isVisible);
+    enableScroll();
   }
 });
 
@@ -308,6 +310,7 @@ window.onscroll = function () {
     button.style.display = "none";
   }
 };
+
 scrollToTopButton.addEventListener("click", () => {
   window.scroll({ top: 0, left: 0, behavior: "smooth" });
 });
