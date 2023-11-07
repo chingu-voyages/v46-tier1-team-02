@@ -1,7 +1,8 @@
-/* CSS variables */
+/* CSS variables - start */
 :root {
   --app-bg-color: rgb(241, 238, 238);
   --app-color: #000;
+  --app-title-color: #A7754D;
   --primary-color: rgb(45, 46, 46);
   --header-footer-bg-color: #e7d8c9;
   --button-bg-color: #b098a4;
@@ -16,12 +17,15 @@
   --recipe-card-modal-bg-color: var(--header-footer-bg-color);
   --recipe-card-modal-border-color: var(--button-bg-color);
   --font-family: "Red Hat Display", sans-serif;
+  --app-title-font-family: "Just another hand", sans-serif;
   --primary-font-size: 1.1rem;
-  --h1-font-size: 1.8rem;
+  --h1-font-size: 2.8rem;
   --h2-font-size: 1.3rem;
   --input-font-size: 1rem;
   --border-radius: 0.6rem;
 }
+
+/* CSS variables - end */
 
 *,
 *::after,
@@ -61,14 +65,17 @@ ul {
 }
 
 h1 {
+  font-family: var(--app-title-font-family);
   font-size: var(--h1-font-size);
+  font-weight: normal;
+  margin: 0;
 }
 
 h2 {
   font-size: var(--h2-font-size);
 }
 
-button {
+button:not(.input-icons) {
   background-color: var(--button-bg-color);
   border: transparent;
   border-radius: var(--button-border-radius);
@@ -79,8 +86,8 @@ button {
   outline: none;
 }
 
-button:hover,
-button:focus {
+button:not(.input-icons):hover,
+button:not(.input-icons):focus {
   background-color: var(--button-bg-color-transform);
   border: var(--button-border-transform);
   color: var(--button-color-transform);
@@ -100,24 +107,25 @@ button:focus {
     "footer";
 }
 
-#app > header {
+#app>header {
   background-color: var(--header-footer-bg-color);
+  color: var(--app-title-color);
   grid-area: header;
-  padding: 0 1rem;
+  padding: 2rem 1rem;
 }
 
-#app > main {
+#app>main {
   grid-area: main;
   margin-top: 2rem;
 }
 
-#app > footer {
+#app>footer {
   background-color: var(--header-footer-bg-color);
   grid-area: footer;
   padding-bottom: 1rem;
 }
 
-#app > footer img {
+#app>footer img {
   margin-right: 1rem;
   height: 2rem;
   width: 2rem;
@@ -136,18 +144,99 @@ button:focus {
 
 .header__text-instructions {
   font-style: italic;
+  margin-top: 0;
 }
 
+/* Search Component - start */
 .form--flex-container {
   display: flex;
-  align-items: center;
   justify-content: center;
-  flex-wrap: wrap;
   gap: 1rem;
-  padding: 0 1.5rem;
+  margin: auto;
+  padding: 1rem 1rem 0 1rem;
+  width: 100%;
 }
 
-/* Recipe Card */
+.form--flex-container .form--input-container {
+  width: 100%;
+  position: relative;
+}
+
+.form--flex-container section .close-icon {
+  background-color: inherit;
+  border: none;
+  height: 100%;
+  aspect-ratio: 1;
+  outline: none;
+  position: absolute;
+  right: 0;
+  transform: translateX(-10%);
+  top: 1%;
+}
+
+.form--search-icon-container {
+  display: flex;
+  align-items: center;
+}
+
+.form--flex-container section .search-icon {
+  background-color: inherit;
+  border: none;
+  border-color: white;
+  aspect-ratio: 1;
+  outline: none;
+}
+
+.search-icon {
+  height: 2.2rem;
+  width: 2.2rem;
+}
+
+.form--flex-container input {
+  background-color: var(--app-bg-color);
+  border: 2px solid var(--button-bg-color);
+  border-radius: var(--button-border-radius);
+  font-size: var(--input-font-size);
+  padding: 0.7rem 1.5rem;
+  outline: none;
+  width: 100%;
+}
+
+.form--flex-container input:focus,
+.form--flex-container input:hover {
+  background-color: var(--button-bg-color-transform);
+  border: var(--button-border-transform);
+  color: var(--button-color-transform);
+}
+
+#search-results {
+  margin-top: 3rem;
+}
+
+#error-message {
+  color: red;
+}
+
+.input-icons {
+  background-size: cover;
+}
+
+.input-icons:hover {
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(22deg) brightness(104%) contrast(97%);
+  cursor: var(--cursor-pointer);
+}
+
+.close-icon {
+  background-image: url("./assets/images/Close_round_duotone_line.svg");
+}
+
+.search-icon {
+  background-image: url("./assets/images/magnifier.svg");
+}
+
+/* Search Component - end */
+
+/* Recipe Card - start */
 .recipe-card__grid-container {
   display: grid;
   grid-template-columns: repeat(1fr);
@@ -172,43 +261,9 @@ button:focus {
   width: 50%;
 }
 
-/* Search Component */
-.form--flex-container section {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-  width: 100%;
-}
+/* Recipe Card - end */
 
-.form--flex-container label {
-  margin: auto;
-}
-
-.form--flex-container input {
-  background-color: var(--app-bg-color);
-  border: 2px solid var(--button-bg-color);
-  border-radius: var(--button-border-radius);
-  font-size: var(--input-font-size);
-  padding: 0.7rem 1.5rem;
-  outline: none;
-}
-
-.form--flex-container input:focus,
-.form--flex-container input:hover {
-  background-color: var(--button-bg-color-transform);
-  border: var(--button-border-transform);
-  color: var(--button-color-transform);
-}
-
-#search-results {
-  margin-top: 3rem;
-}
-
-#error-message {
-  color: red;
-}
-
-/* Recipe Modal */
+/* Recipe Modal - start */
 .recipe-modal {
   background: rgba(60, 59, 59, 0.89);
   cursor: pointer;
@@ -249,8 +304,7 @@ button:focus {
   position: absolute;
   right: 2rem;
   top: 2rem;
-  width: 35px;
-  height: 35px;
+  width: 3rem;
   opacity: 0.9;
 }
 
@@ -264,19 +318,40 @@ button:focus {
   opacity: 1;
 }
 
-/* Footer */
+/* Recipe Modal - end */
+
+/* Footer - start */
 .footer--flex-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
-/* Scroll to top */
-.scroll-to-top {
-  background-color: transparent;
+
+/* Footer - end */
+
+/* Scroll to top - start */
+#scrollToTop {
+  background-color: inherit;
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  margin-right: 5rem;
+}
+
+#scrollToTop img {
+  background-color: rgba(37, 37, 37, 0.8);
+  border-radius: 50%;
+}
+
+#scrollToTop:focus,
+#scrollToTop:hover {
+  border: none;
+  outline: none;
+}
+
+#scrollToTop:focus img,
+#scrollToTop:hover img {
+  /* background-color: #61364d; */
+  filter: invert(27%) sepia(51%) saturate(778%) hue-rotate(353deg) brightness(104%) contrast(97%);
 }
 
 .icon-image {
@@ -284,24 +359,35 @@ button:focus {
   width: 48px;
 }
 
-/* media query for desktop */
+/* Scroll to top - end */
+
+/* Screen reader only class - start */
+.sr-only:not(:focus):not(:active) {
+  clip: rect(0 0 0 0);
+  clip-path: inset(50%);
+  height: 1px;
+  overflow: hidden;
+  position: absolute;
+  white-space: nowrap;
+  width: 1px;
+}
+
+/* Screen reader only class - end */
+
+/* media query for desktop - start */
 @media only screen and (min-device-width: 768px) and (max-device-width: 6024px) {
-  #app > main {
+  #app>main {
     padding: 2rem 0;
   }
 
-  #app > main form {
+  #app>main form {
     padding-right: 3rem;
   }
 
-  #app > main form,
-  #app > main .recipe-card__grid-container {
+  #app>main form,
+  #app>main .recipe-card__grid-container {
     margin: auto;
     max-width: 1440px;
-  }
-
-  img {
-    height: 30rem;
   }
 
   footer a {
@@ -322,14 +408,7 @@ button:focus {
   }
 
   .form--flex-container {
-    flex-wrap: nowrap;
-    width: 100%;
-  }
-
-  .form--flex-container section {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    width: 50%;
+    width: 30vw;
   }
 
   .recipe-card__grid-container {
@@ -338,7 +417,11 @@ button:focus {
 
   .recipe-card__grid-container__items {
     display: grid;
-    height: 52vh;
+    height: 55vh;
+  }
+
+  .recipe-card__grid-container__items img {
+    height: 40vh;
   }
 
   .recipe-card__grid-container__items button {
@@ -369,5 +452,19 @@ button:focus {
     padding: 0.5rem;
     text-align: center;
   }
+
+  #scrollToTop {
+    bottom: 5rem;
+    right: 5rem;
+  }
 }
 
+/* media query for desktop - end */
+
+/* font-face - start */
+@font-face {
+  font-family: "Just another hand";
+  src: url("./assets/fonts/Just_Another_Hand/JustAnotherHand-Regular.ttf");
+}
+
+/* font-face - end */
