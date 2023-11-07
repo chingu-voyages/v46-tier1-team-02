@@ -242,13 +242,13 @@ document
     }
   });
 
-  function disableScroll() {
-    document.body.style.overflow = 'hidden';
-  }
-  
-  function enableScroll() {
-    document.body.style.overflow = 'auto';
-  }
+function disableScroll() {
+  document.body.style.overflow = 'hidden';
+}
+
+function enableScroll() {
+  document.body.style.overflow = 'auto';
+}
 
 
 
@@ -269,6 +269,7 @@ document.addEventListener("click", (e) => {
     document
       .querySelector(".recipe-modal.is-visible")
       .classList.remove(isVisible);
+    enableScroll();
   }
 });
 
