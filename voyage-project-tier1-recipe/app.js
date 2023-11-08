@@ -137,14 +137,14 @@ function createRecipeModal(recipeData) {
   recipeModalContent.appendChild(recipeDetailsSectionContainer);
 
   recipeDetailsSectionContainer.append(
+    recipeImageSectionContainer,
+    recipeVideoLinkSectionContainer,
     recipeTitleHeader,
     recipeName,
     recipeNutritionSectionContainer,
     recipeIngredientsSectionContainer,
     recipeInstructionsSectionContainer,
-    recipeImageSectionContainer,
-    recipeVideoLinkSectionContainer
-  );
+    );
 
   recipeNutritionSectionContainer.append(
     recipeNutritionHeader,
@@ -173,8 +173,13 @@ function createRecipeModal(recipeData) {
 
   recipeNutritionHeader.innerHTML = "Nutrition:";
   for (const [key, value] of Object.entries(recipeData.nutrition)) {
-    console.log(`${key} ${value}`);
-    recipeNutritionUl.innerHTML += "<li>" + `${key}: ${value}` + "</li>";
+    if (key === 'updated_at') {
+      continue;
+    }
+    let formattedValue = key === 'calories' ? `${value}kcals` : `${value}g`;
+    const listItem = document.createElement("li");
+    listItem.innerHTML = `&bull; ${key}: ${formattedValue}`; 
+    recipeNutritionUl.appendChild(listItem);
   }
 
   recipeIngredientsHeader.innerHTML = "Ingredients:";
