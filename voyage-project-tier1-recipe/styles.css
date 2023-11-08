@@ -371,8 +371,24 @@ button:not(.input-icons):focus {
   white-space: nowrap;
   width: 1px;
 }
-
 /* Screen reader only class - end */
+
+/* Nutrition design */
+.nutrition-rectangle {
+  width: 80px;
+  height: 144px;
+  background-color: #5D8F96;
+  border-radius: 0 0 60px 60px; 
+  display: inline-block;
+  margin-right: 1px; 
+}
+
+.nutrition-title,
+.nutrition-amount {
+  text-align: center;
+  color:white;
+  margin-top: 20px;
+}
 
 /* media query for desktop - start */
 @media only screen and (min-device-width: 768px) and (max-device-width: 6024px) {
