@@ -1,28 +1,40 @@
-# voyage-tasks
+# ReciPick
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+## Table of Contents
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+- [Project Description](#project-description)
+- [Features](#Features)
+- [Project setup](#project-setup)
+- [Dependencies](#dependencies)
+- [Contributers](#contributers)
+- [Deployment](#deployment)
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Project Description
 
-> Own it & Make it your Own!
+ReciPick is a JavaScript based tool that allows users to input an ingredient and find recipes that use that specific ingredient. This README provides an overview of the application, setup and usage.
 
-## Team Documents
+## Features
 
-You may find these helpful as you work together to organize your project.
+- Input an ingredient to search for recipes.
+- Displays a list of recipes that include the specific ingredient.
+- View detailed information about each recipe, including ingredients, instructions and a link to a video source.
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+## Dependencies
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+- Node.js
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+## Contributers
+
+- [Nisha](https://github.com/NishaVijai)
+- [Kseniia](https://github.com/KseniiaRiabova)
+- [Lawrence](https://github.com/lawlawson)
+- [Wing](https://github.com/Sloth0607)
+
+## Deployment
+
+- Preview link
+  https://spiffy-puppy-8c140f.netlify.app/
+
+- Screenshot of the project
+
+![](/voyage-project-tier1-recipe/assets/images/screenshot.png)
