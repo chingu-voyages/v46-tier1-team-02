@@ -19,7 +19,7 @@
   --font-family: "Red Hat Display", sans-serif;
   --app-title-font-family: "Just another hand", sans-serif;
   --primary-font-size: 1.1rem;
-  --h1-font-size: 2.8rem;
+  --h1-font-size: 5rem;
   --h2-font-size: 1.3rem;
   --input-font-size: 1rem;
   --border-radius: 0.6rem;
@@ -290,6 +290,20 @@ button:not(.input-icons):focus {
   overflow-y: auto;
 }
 
+/* Style the scrollbar */
+.recipe-modal__container::-webkit-scrollbar {
+  width: 15px; 
+}
+
+.recipe-modal__container::-webkit-scrollbar-thumb {
+  background-color: var(--button-bg-color); 
+  border-radius: var(--card-border-radius); 
+}
+.recipe-modal__container::-webkit-scrollbar-track {
+  background-color: var(--app-bg-color);
+  border-radius: 20px;
+}
+
 .recipe-modal__close-button {
   border: 2px solid var(--recipe-card-modal-border-color);
   border-radius: 50%;
@@ -316,6 +330,10 @@ button:not(.input-icons):focus {
 .recipe-modal.is-visible {
   visibility: visible;
   opacity: 1;
+}
+
+.recipe-modal__content img {
+  border-radius: var(--border-radius);
 }
 
 /* Recipe Modal - end */

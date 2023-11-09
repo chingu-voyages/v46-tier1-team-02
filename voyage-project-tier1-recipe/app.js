@@ -164,6 +164,7 @@ function createRecipeModal(recipeData) {
     recipeInstructions
   );
 
+
   recipeImageSectionContainer.appendChild(recipeImage);
 
   recipeVideoLinkSectionContainer.appendChild(recipeVideoLink);
@@ -246,9 +247,17 @@ function createRecipeModal(recipeData) {
     }
   }
 
-  recipeInstructionsHeader.innerHTML = "Instructions:";
-  recipeInstructions.innerHTML = recipeData.description;
-
+    // Check if the recipe has instructions
+    if (recipeData.description && recipeData.description.trim() !== "") {
+      // If instructions are present, display them
+      recipeInstructionsHeader.innerHTML = "Instructions:";
+      recipeInstructions.innerHTML = recipeData.description;
+    } else {
+      // If no instructions, display a default message
+      recipeInstructionsHeader.innerHTML = "Instructions:";
+      recipeInstructions.innerHTML = "This recipe does not contain any instructions.";
+    }
+  
   recipeImage.innerHTML = "Image:";
   recipeImage.setAttribute("src", recipeData.thumbnail_url);
 
