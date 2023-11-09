@@ -335,6 +335,7 @@ button:not(.input-icons):focus {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  display: none;
 }
 
 #scrollToTop img {
