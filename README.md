@@ -41,7 +41,7 @@ ReciPick is a frontend web application built using HTML, CSS and JavaScript. The
 
 ## Contributers
 
-- [Nisha](https://github.com/NishaVijai)
 - [Kseniia](https://github.com/KseniiaRiabova)
 - [Lawrence](https://github.com/lawlawson)
+- [Nisha](https://github.com/NishaVijai)
 - [Wing](https://github.com/Sloth0607)
