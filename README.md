@@ -1,28 +1,47 @@
-# voyage-tasks
+# ReciPick
 
-Your project's `readme` is as important to success as your code. For 
-this reason you should put as much care into its creation and maintenance
-as you would any other component of the application.
+Welcome to ReciPick! This repository contains the code for our web application, an app that allows users to browse and discover recipes based on an individual ingredient. [Click here to visit ReciPick](https://spiffy-puppy-8c140f.netlify.app/)
 
-If you are unsure of what should go into the `readme` let this article,
-written by an experienced Chingu, be your starting point - 
-[Keys to a well written README](https://tinyurl.com/yk3wubft).
+![](/voyage-project-tier1-recipe/assets/images/screenshot.png)
 
-And before we go there's "one more thing"! Once you decide what to include
-in your `readme` feel free to replace the text we've provided here.
+## Table of Contents
 
-> Own it & Make it your Own!
+- [Project Description](#project-description)
+- [Features](#Features)
+- [Installation](#Installation)
+- [Project setup](#project-setup)
+- [Dependencies](#dependencies)
+- [Contributers](#contributers)
 
-## Team Documents
+## Project Description
 
-You may find these helpful as you work together to organize your project.
+ReciPick is a JavaScript based tool that allows users to input an ingredient and find recipes that use that specific ingredient. This README provides an overview of the application, setup and usage.
 
-- [Team Project Ideas](./docs/team_project_ideas.md)
-- [Team Decision Log](./docs/team_decision_log.md)
+## Features
 
-Meeting Agenda templates (located in the `/docs` directory in this repo):
+- Input an ingredient to search for recipes.
+- Displays a list of recipes that include the specific ingredient.
+- View detailed information about each recipe, including ingredients, instructions and a link to a video source.
 
-- Meeting - Voyage Kickoff --> ./docs/meeting-voyage_kickoff.docx
-- Meeting - App Vision & Feature Planning --> ./docs/meeting-vision_and_feature_planning.docx
-- Meeting - Sprint Retrospective, Review, and Planning --> ./docs/meeting-sprint_retrospective_review_and_planning.docx
-- Meeting - Sprint Open Topic Session --> ./docs/meeting-sprint_open_topic_session.docx
+## Installation
+
+Follow these steps to set up the Fireball application locally:
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/chingu-voyages/v46-tier1-team-02
+```
+
+2. Use your usual method to start a server (Python or Node.js HTTP Server, Live Server from VSCode...) and access the corresponding port.
+
+## Technologies and Libraries
+
+ReciPick is a frontend web application built using HTML, CSS and JavaScript. The only dependency required to run this application is Node.js
+
+## Contributers
+
+- [Kseniia](https://github.com/KseniiaRiabova)
+- [Lawrence](https://github.com/lawlawson)
+- [Nisha](https://github.com/NishaVijai)
+- [Wing](https://github.com/Sloth0607)
