@@ -1,8 +1,9 @@
 # ReciPick
 
-Welcome to ReciPick! This repository contains the code for our web application, an app that allows users to browse and discover recipes based on an individual ingredient. [Click here to visit ReciPick](https://spiffy-puppy-8c140f.netlify.app/)
+Welcome to ReciPick! This repository contains the code for our web application, an app that allows users to browse and discover recipes based on an individual ingredient. [Click here to visit ReciPick](https://recipick-v46-tier1-team-02.netlify.app/)
 
-![](/voyage-project-tier1-recipe/assets/images/screenshot.png)
+![](/voyage-project-tier1-recipe/assets/images/ReciPickApp.png)
+![](/voyage-project-tier1-recipe/assets/images/ReciPickAppModal.png)
 
 ## Table of Contents
 
@@ -25,7 +26,7 @@ ReciPick is a JavaScript based tool that allows users to input an ingredient and
 
 ## Installation
 
-Follow these steps to set up the Fireball application locally:
+Follow these steps to set up the ReciPick application locally:
 
 1. Clone the repository:
 
