@@ -1,7 +1,7 @@
 /* CSS variables - start */
 :root {
   --app-bg-color: rgb(241, 238, 238);
-  --app-color: #000;
+  --app-color: #824126;
   --app-title-color: #A7754D;
   --primary-color: rgb(45, 46, 46);
   --header-footer-bg-color: #e7d8c9;
@@ -48,7 +48,7 @@ body * {
 }
 
 a {
-  color: var(--primary-color);
+  color: var(--app-color);
 }
 
 img {
@@ -94,7 +94,6 @@ button:not(.input-icons):focus {
 }
 
 #app {
-  color: var(--primary-color);
   text-align: center;
   height: 100dvh;
   width: 100%;
@@ -303,6 +302,7 @@ button:not(.input-icons):focus {
   font-size: 1.8rem;
   position: absolute;
   right: 2rem;
+  right: 1.2rem;
   top: 2rem;
   width: 3rem;
   opacity: 0.9;
@@ -335,6 +335,7 @@ button:not(.input-icons):focus {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
+  display: none;
 }
 
 #scrollToTop img {
@@ -350,7 +351,6 @@ button:not(.input-icons):focus {
 
 #scrollToTop:focus img,
 #scrollToTop:hover img {
-  /* background-color: #61364d; */
   filter: invert(27%) sepia(51%) saturate(778%) hue-rotate(353deg) brightness(104%) contrast(97%);
 }
 
@@ -371,6 +371,7 @@ button:not(.input-icons):focus {
   white-space: nowrap;
   width: 1px;
 }
+
 /* Screen reader only class - end */
 
 /* Nutrition design */
@@ -378,15 +379,15 @@ button:not(.input-icons):focus {
   width: 80px;
   height: 144px;
   background-color: #5D8F96;
-  border-radius: 0 0 60px 60px; 
+  border-radius: 0 0 60px 60px;
   display: inline-block;
-  margin-right: 1px; 
+  margin-right: 1px;
 }
 
 .nutrition-title,
 .nutrition-amount {
   text-align: center;
-  color:white;
+  color: white;
   margin-top: 20px;
 }
 

@@ -107,7 +107,7 @@ function createRecipeModal(recipeData) {
   let recipeNutritionSectionContainer = createElement("section");
   let recipeNutritionHeader = createElement("h3");
   let recipeNutrition = createElement("p");
- let recipeNutritionRectanglesContainer = document.createElement("div");
+  let recipeNutritionRectanglesContainer = document.createElement("div");
 
   let recipeIngredientsSectionContainer = createElement("section");
   let recipeIngredientsHeader = createElement("h3");
@@ -144,13 +144,13 @@ function createRecipeModal(recipeData) {
     recipeNutritionSectionContainer,
     recipeIngredientsSectionContainer,
     recipeInstructionsSectionContainer,
-    );
+  );
 
   recipeNutritionSectionContainer.append(
     recipeNutritionHeader,
     recipeNutrition,
 
- );
+  );
 
   recipeNutrition.appendChild(recipeNutritionRectanglesContainer);
 
@@ -174,8 +174,8 @@ function createRecipeModal(recipeData) {
 
   recipeNutritionHeader.innerHTML = "Nutrition:";
   recipeNutritionRectanglesContainer.classList.add("nutrition-rectangles-container");
-  
-    const nutritionKeyMap = {
+
+  const nutritionKeyMap = {
     calories: "Calories",
     carbohydrates: "Carbs",
     sugar: "Sugar",
@@ -183,49 +183,49 @@ function createRecipeModal(recipeData) {
     fat: "Fat",
     protein: "Protein",
   };
-  
- 
+
+
   const caloriesValue = recipeData.nutrition.calories;
   if (caloriesValue !== undefined) {
     const recipeNutritionRectangle = document.createElement("div");
     recipeNutritionRectangle.classList.add("nutrition-rectangle");
-   
-  
+
+
     const recipeNutritionTitle = document.createElement("div");
     recipeNutritionTitle.classList.add("nutrition-title");
     recipeNutritionTitle.innerText = nutritionKeyMap.calories;
-  
+
     const recipeNutritionAmount = document.createElement("div");
     recipeNutritionAmount.classList.add("nutrition-amount");
     recipeNutritionAmount.innerText = `${caloriesValue}kcals`;
-  
+
     recipeNutritionRectangle.appendChild(recipeNutritionTitle);
     recipeNutritionRectangle.appendChild(recipeNutritionAmount);
     recipeNutritionRectanglesContainer.appendChild(recipeNutritionRectangle);
   }
-  
- 
+
+
   for (const [key, value] of Object.entries(recipeData.nutrition)) {
     if (key === 'updated_at' || key === 'calories') {
       continue;
     }
-  
+
     const recipeNutritionRectangle = document.createElement("div");
     recipeNutritionRectangle.classList.add("nutrition-rectangle");
-    
-  
+
+
     const recipeNutritionTitle = document.createElement("div");
     recipeNutritionTitle.classList.add("nutrition-title");
     recipeNutritionTitle.innerText = nutritionKeyMap[key] || key;
-  
+
     const recipeNutritionAmount = document.createElement("div");
     recipeNutritionAmount.classList.add("nutrition-amount");
     recipeNutritionAmount.innerText = `${value}g`;
-  
+
     recipeNutritionRectangle.appendChild(recipeNutritionTitle);
     recipeNutritionRectangle.appendChild(recipeNutritionAmount);
     recipeNutritionRectanglesContainer.appendChild(recipeNutritionRectangle);
- }
+  }
 
   recipeIngredientsHeader.innerHTML = "Ingredients:";
 
@@ -353,7 +353,7 @@ document.getElementById("search").addEventListener("input", () => {
 const scrollToTopButton = document.getElementById("scrollToTop");
 
 window.onscroll = function () {
-  var button = document.getElementById("scrollToTop");
+  const button = document.getElementById("scrollToTop");
   if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
     button.style.display = "block";
   } else {
