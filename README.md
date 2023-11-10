@@ -3,7 +3,7 @@
 Welcome to ReciPick! This repository contains the code for our web application, an app that allows users to browse and discover recipes based on an individual ingredient. [Click here to visit ReciPick](https://recipick-v46-tier1-team-02.netlify.app/)
 
 ![](/voyage-project-tier1-recipe/assets/images/ReciPickApp.png)
-![](/voyage-project-tier1-recipe/assets/images/ReciPickAppModal.png)
+![ReciPickAppModal](https://github.com/chingu-voyages/v46-tier1-team-02/assets/26595961/c494ec09-5a7b-4bf8-8fe4-b9ed202cd768)
 
 ## Table of Contents
 
