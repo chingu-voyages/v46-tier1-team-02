@@ -14,6 +14,7 @@ const recipeIngredientComponents = recipeDataResults.map((recipe) =>
 );
 const isVisible = "is-visible";
 
+
 // Function to create a recipe card
 function createRecipeCard(recipe) {
   const recipeCardDiv = document.createElement("div");
