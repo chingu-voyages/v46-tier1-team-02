@@ -21,7 +21,7 @@ function createRecipeCard(recipe) {
   recipeCardDiv.classList.add("recipe-card__grid-container__items");
 
   recipeCardDiv.innerHTML = `
-        <img src="${recipe.thumbnail_url}">
+        <img src="${recipe.thumbnail_url}" alt="Image of ${recipe.name}">
         <h2>${recipe.name}</h2>
         <button class="recipe-card__button">Get recipe</button>
     `;
@@ -248,17 +248,17 @@ function createRecipeModal(recipeData) {
     }
   }
 
-    // Check if the recipe has instructions
-    if (recipeData.description && recipeData.description.trim() !== "") {
-      // If instructions are present, display them
-      recipeInstructionsHeader.innerHTML = "Instructions:";
-      recipeInstructions.innerHTML = recipeData.description;
-    } else {
-      // If no instructions, display a default message
-      recipeInstructionsHeader.innerHTML = "Instructions:";
-      recipeInstructions.innerHTML = "This recipe does not contain any instructions.";
-    }
-  
+  // Check if the recipe has instructions
+  if (recipeData.description && recipeData.description.trim() !== "") {
+    // If instructions are present, display them
+    recipeInstructionsHeader.innerHTML = "Instructions:";
+    recipeInstructions.innerHTML = recipeData.description;
+  } else {
+    // If no instructions, display a default message
+    recipeInstructionsHeader.innerHTML = "Instructions:";
+    recipeInstructions.innerHTML = "This recipe does not contain any instructions.";
+  }
+
   recipeImage.innerHTML = "Image:";
   recipeImage.setAttribute("src", recipeData.thumbnail_url);
 

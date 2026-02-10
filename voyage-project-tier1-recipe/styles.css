@@ -2,9 +2,11 @@
 :root {
   --app-bg-color: rgb(241, 238, 238);
   --app-color: #824126;
-  --app-title-color: #a7754d;
+  --app-title-color: #6d4b30;
+  /* --app-title-color: #a7754d; */
   --primary-color: rgb(45, 46, 46);
-  --header-footer-bg-color: #e7d8c9;
+  --header-footer-bg-color: #f1cead;
+  /* --header-footer-bg-color: #e7d8c9; */
   --button-bg-color: #b098a4;
   --button-bg-color-transform: var(--header-footer-bg-color);
   --button-color: #000;
@@ -106,25 +108,25 @@ button:not(.input-icons):focus {
     "footer";
 }
 
-#app > header {
+#app>header {
   background-color: var(--header-footer-bg-color);
   color: var(--app-title-color);
   grid-area: header;
   padding: 2rem 1rem;
 }
 
-#app > main {
+#app>main {
   grid-area: main;
   margin-top: 2rem;
 }
 
-#app > footer {
+#app>footer {
   background-color: var(--header-footer-bg-color);
   grid-area: footer;
   padding-bottom: 1rem;
 }
 
-#app > footer img {
+#app>footer img {
   margin-right: 1rem;
   height: 2rem;
   width: 2rem;
@@ -221,8 +223,7 @@ button:not(.input-icons):focus {
 }
 
 .input-icons:hover {
-  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(22deg)
-    brightness(104%) contrast(97%);
+  filter: invert(27%) sepia(51%) saturate(2878%) hue-rotate(22deg) brightness(104%) contrast(97%);
   cursor: var(--cursor-pointer);
 }
 
@@ -300,6 +301,7 @@ button:not(.input-icons):focus {
   background-color: var(--button-bg-color);
   border-radius: var(--card-border-radius);
 }
+
 .recipe-modal__container::-webkit-scrollbar-track {
   background-color: var(--app-bg-color);
   border-radius: 20px;
@@ -370,8 +372,7 @@ button:not(.input-icons):focus {
 
 #scrollToTop:focus img,
 #scrollToTop:hover img {
-  filter: invert(27%) sepia(51%) saturate(778%) hue-rotate(353deg)
-    brightness(104%) contrast(97%);
+  filter: invert(27%) sepia(51%) saturate(778%) hue-rotate(353deg) brightness(104%) contrast(97%);
 }
 
 .icon-image {
@@ -413,16 +414,16 @@ button:not(.input-icons):focus {
 
 /* media query for desktop - start */
 @media only screen and (min-device-width: 768px) and (max-device-width: 6024px) {
-  #app > main {
+  #app>main {
     padding: 2rem 0;
   }
 
-  #app > main form {
+  #app>main form {
     padding-right: 3rem;
   }
 
-  #app > main form,
-  #app > main .recipe-card__grid-container {
+  #app>main form,
+  #app>main .recipe-card__grid-container {
     margin: auto;
     max-width: 1440px;
   }
